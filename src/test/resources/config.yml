@@ -1,0 +1,7 @@
+#This is the default environment credentials.
+#If you want to make a special environment requests, Create a new file {environment name}-config.yml
+userInfo:
+  - role: CONTRACTOR
+    id: 0
+    password: test123
+    username: tauqir.sarwar@outlook.com
