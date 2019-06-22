@@ -117,12 +117,6 @@ public abstract class AbstractPage implements ScreenDriver<WebDriver> {
                 valueToCheck)).booleanValue());
     }
 
-    /**
-     * This method will check if Text is present in the element
-     *
-     * @param element      - web element
-     * @param valueToCheck - text to check
-     */
     protected boolean checkTextToBePresentInElement(final WebElement element, final String valueToCheck) {
         return itsWait.until(ExpectedConditions.textToBePresentInElement(element, valueToCheck)).booleanValue();
     }
@@ -368,9 +362,9 @@ public abstract class AbstractPage implements ScreenDriver<WebDriver> {
         Assert.assertTrue(message, webElement.isDisplayed());
     }
 
-    public void assertPageURL(final String URL) {
-        String actualURL = itsDriver.getCurrentUrl();
-        Assert.assertTrue(actualURL.contains(URL));
+    public void assertElementIsConstains(final WebElement webElement, final String message) {
+        final String text = webElement.getText();
+        Assert.assertTrue(text.contains(message));
     }
 
 
