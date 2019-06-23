@@ -103,6 +103,7 @@ public final class WebDriverFactory
 
 	private static WebDriver createFirefoxWebDriver()
 	{
+		System.setProperty("webdriver.gecko.driver", "src/test/resources/attachments/geckodriver.exe");
 		return new FirefoxDriver(DesiredCapabilities.firefox());
 	}
 }
