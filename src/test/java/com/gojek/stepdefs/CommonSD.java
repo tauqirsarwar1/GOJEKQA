@@ -34,8 +34,13 @@ public class CommonSD {
 
     @Given("^User navigates to URL : \"([^\"]*)\" application$")
     public void userNavigatesToURLApplication(String appURL) {
+        try {
+            itsDriver.get(appURL);
+        } catch (Exception e) {
+            Log.info("Navigate to URL : " +appURL);
+            throw (e);
+        }
 
-        itsDriver.get(appURL);
     }
 
     @When("the user moves to login page")
@@ -44,7 +49,7 @@ public class CommonSD {
             applicationsPageObject.clickAccountList();
             applicationsPageObject.verifyloginPage();
         } catch (Exception e) {
-            Log.warning("Unable to navigate to login page");
+            Log.info("Unable to navigate to login page");
             throw (e);
         }
 
@@ -68,7 +73,6 @@ public class CommonSD {
 
     @When("the user logoff from the system")
     public void theUserLogoffFromTheSystem() {
-
         applicationsPageObject.logoff();
     }
 }
